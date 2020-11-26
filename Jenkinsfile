@@ -9,7 +9,7 @@ pipeline{
     
     stage("unit Test"){
       steps{
-        mvn clean install
+        mvn clean test:test
       }
     }
   }
