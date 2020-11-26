@@ -1,5 +1,9 @@
 pipeline{
   agent any
+  
+  environment{
+    M2_HOME = "/home/ec2-user/apache-maven-3.6.3"
+  }
   stages{
     stage("checkout"){
       steps{
@@ -9,7 +13,7 @@ pipeline{
     
     stage("unit Test"){
       steps{
-        sh 'mvn clean test:test'
+        sh '${M2_HOME}/bin/mvn clean test:test'
       }
     }
   }
